@@ -30,12 +30,15 @@ public class Intervals {
         Node n1 = new Node();
         Endpoint e1 = new Endpoint();
         e1.value=a;
-        n1.p = Node.LEFT;
+        e1.p = Endpoint.LEFT;
 
         Node n2 = new Node();
         Endpoint e2 = new Endpoint();
         e2.value=b;
-        n2.p = Node.RIGHT;                
+        e2.p = Endpoint.RIGHT;            
+        
+        rbTree.RBInsert(n1);
+        rbTree.RBInsert(n2);
     }
 
     //Not required

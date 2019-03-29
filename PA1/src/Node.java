@@ -5,16 +5,21 @@ public class Node {
     public final static int RED = 0;
     public final static int BLACK = 1;
 
-    public final static int LEFT = 1;
-    public final static int RIGHT = -1;
-
-    int p = 0;
     Endpoint key = null;
 
     public int color = BLACK;//0 red, 1 black
     public Node parent = null;
     public Node leftChild = null;
     public Node rightChild = null;
+    
+    //sum of p values of child nodes
+    //val=s(lv,rv)
+    int val;	
+    //maximum value obtained by s(lv, i) for lv <= i <= rv
+    int maxval;
+    //reference to endpoint em, where m is the value of i that 
+    //maximizes s(lv,i) over all i such that lv <= i <= rv
+    int emax;
 
     public Node getParent(){
         return parent;
@@ -33,20 +38,14 @@ public class Node {
     }
 
     public int getP(){
-        return p;
+        return key.p;
     }
 
     public int getVal(){
-
-        //check if nil node
-        if (p==0){
-            return 0;
-        }
-
         int lval = leftChild.getVal();
         int rval = rightChild.getVal();
 
-        return lval + p + rval;
+        return lval + getP() + rval;
     }
 
     public int getMaxVal(){
