@@ -29,44 +29,52 @@ public class RBTree {
     public int getHeight(){
         return 0;
     }
+    
 
     //General RB Stuff
     void RBInsert(Node z){
     	
-    	z.color = Node.RED;
-        
-        Node y = nil;
-        Node x = root;
-
-    	while (x!=nil) {
-    		y=x;
-    		x = x.key.getValue() < x.key.getValue() ?
-    				x.leftChild: x.rightChild;
-    		z.parent = y;
-    		if (y==nil) {
-    			root = z;
-    		} else if (z.key.getValue() < y.key.getValue()) {
-    			y.leftChild = z;
-    		} else {
-    			y.rightChild = z;
-    		}
+    	if (root == nil) {
+    		root = z;
+    		++blackHeight;
+    		return;
     	}
     	
+    	z.color = Node.RED;
+        
+        Node y = null;
+        Node x = root;
+
+    	while (x!=null) {
+    		y=x;
+    		x = z.key.getValue() < z.key.getValue() ?
+    				x.leftChild: x.rightChild;
+    	}
+    	
+    	z.parent = y;
+    	
+		if (y==null) {
+			root = z;
+		} else if (z.key.getValue() < y.key.getValue()) {
+			y.leftChild = z;
+		} else {
+			y.rightChild = z;
+		}
+		
     	RBInsertFix(z);
     }
     
     void RBInsertFix(Node z){
-    	if (z==root) {
-    		z.color=Node.BLACK;
-    		++blackHeight;
-    		return;
-    	}
     	
     	if (z.parent.color == Node.RED) {
     		return;
     	}
     	
     	Node uncle = GetUncle(z);
+    	
+    	if (uncle == null) {
+    		return;
+    	}
     	
     	if (uncle.color == Node.RED) {
     		z.parent.color = Node.BLACK;

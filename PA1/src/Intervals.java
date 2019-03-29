@@ -31,16 +31,20 @@ public class Intervals {
         Endpoint e1 = new Endpoint();
         e1.value=a;
         e1.p = Endpoint.LEFT;
+        n1.key = e1;
 
         Node n2 = new Node();
         Endpoint e2 = new Endpoint();
         e2.value=b;
-        e2.p = Endpoint.RIGHT;            
+        e2.p = Endpoint.RIGHT;     
+        n2.key = e2;
         
         rbTree.RBInsert(n1);
         rbTree.RBInsert(n2);
+        
+        System.out.println("Inserted " + a + " " + b);
     }
-
+    
     //Not required
     public boolean intervalDelete(int intervalID){
 
