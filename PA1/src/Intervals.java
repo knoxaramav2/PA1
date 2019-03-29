@@ -42,7 +42,7 @@ public class Intervals {
         rbTree.RBInsert(n1);
         rbTree.RBInsert(n2);
         
-        System.out.println("Inserted " + a + " " + b);
+        //System.out.println("Inserted " + a + " " + b);
     }
     
     //Not required

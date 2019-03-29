@@ -34,6 +34,9 @@ public class RBTree {
     //General RB Stuff
     void RBInsert(Node z){
     	
+		z.leftChild = nil;
+		z.rightChild = nil;
+    	
     	if (root == nil) {
     		root = z;
     		++blackHeight;
@@ -45,9 +48,9 @@ public class RBTree {
         Node y = null;
         Node x = root;
 
-    	while (x!=null) {
+    	while (x!=nil) {
     		y=x;
-    		x = z.key.getValue() < z.key.getValue() ?
+    		x = z.key.getValue() < x.key.getValue() ?
     				x.leftChild: x.rightChild;
     	}
     	
@@ -66,13 +69,8 @@ public class RBTree {
     
     void RBInsertFix(Node z){
     	
-    	if (z.parent.color == Node.RED) {
-    		return;
-    	}
-    	
     	Node uncle = GetUncle(z);
-    	
-    	if (uncle == null) {
+    	if (uncle==null) {
     		return;
     	}
     	
@@ -92,8 +90,8 @@ public class RBTree {
     		} else if (parentIsLeft && !zIsLeft) {
 				//Uncle Black Left Right
 	    		LeftRotate(z.parent);
-	    		RightRotate(z.parent.parent);
-	    		SwapColor(z.parent, z.parent.parent);	
+	    		RightRotate(z.parent);
+	    		SwapColor(z, z.rightChild);	
     		} else if (!parentIsLeft && !zIsLeft) {
         		//Uncle Black Right Right
         		LeftRotate(z.parent.parent);
@@ -101,13 +99,18 @@ public class RBTree {
     		} else {
         		//Uncle Black Right Left
         		RightRotate(z.parent);
-        		LeftRotate(z.parent.parent);
-        		SwapColor(z.parent, z.parent.parent);
+        		LeftRotate(z.parent);
+        		SwapColor(z, z.leftChild);
     		}
     	}
     }
     
     public void SwapColor(Node x, Node y) {
+    	
+    	if (y==null) {
+    		x.color = Node.BLACK;
+    	}
+    	
     	int c = x.color;
     	x.color = y.color;
     	y.color = c;
@@ -121,7 +124,7 @@ public class RBTree {
     	}
     	y.parent = x.parent;
     	
-    	if (x.parent == nil) {
+    	if (x.parent == null) {
     		root = y;
     	} else if (x == x.parent.leftChild) {
     		x.parent.leftChild = y;
@@ -142,7 +145,7 @@ public class RBTree {
     	}
     	y.parent = x.parent;
     	
-    	if (x.parent == nil) {
+    	if (x.parent == null) {
     		root = y;
     	} else if (x == x.parent.rightChild) {
     		x.parent.rightChild = y;

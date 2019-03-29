@@ -16,16 +16,16 @@ class Tests {
 		Intervals intervals = new Intervals();
 		Random r = new Random();
 		
-		for (int i = 0; i < 20; ++i) {
+		for (int i = 0; i < 5; ++i) {
 			int min = r.nextInt() % 6;
 			int max = r.nextInt() % 10 + min;
 			intervals.intervalInsert(min, max);
 		}
 		
-		JSONObject jsonObject = new JSONObject(intervals.getRBTree());
-		String msg = jsonObject.toString();
+		//JSONObject jsonObject = new JSONObject(intervals.getRBTree());
+		//String msg = jsonObject.toString();
 			
-		System.out.println(msg);
+		System.out.println("Done");
 		//fail("Not yet implemented");
 	}
 
