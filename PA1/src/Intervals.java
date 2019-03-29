@@ -15,24 +15,27 @@ public class Intervals {
         rbTree = new RBTree();
     }
 
+    //O(logn)
     public void intervalInsert(int a, int b){
 
+    	if (b<a) {
+    		int c = b;
+    		b = a;
+    		a = c;
+    	}
+    	
         intervals.add(new Interval(a,b,nextId));
-        Endpoint e1 = new Endpoint();
-        Endpoint e2 = new Endpoint();
-
-        e1.value=a;
-        e2.value=b;
-
+        ++nextId;
+        
         Node n1 = new Node();
-        Node n2 = new Node();
-
+        Endpoint e1 = new Endpoint();
+        e1.value=a;
         n1.p = Node.LEFT;
 
-
-        n2.p = Node.RIGHT;
-
-        ++nextId;
+        Node n2 = new Node();
+        Endpoint e2 = new Endpoint();
+        e2.value=b;
+        n2.p = Node.RIGHT;                
     }
 
     //Not required
@@ -41,11 +44,14 @@ public class Intervals {
         return true;
     }
 
+    //Find endpoint of maximum overlap and return value
+    //O(1)
     public int findPOM(){
 
         return 0;
     }
 
+    //Return RBT
     public RBTree getRBTree(){
 
         return rbTree;

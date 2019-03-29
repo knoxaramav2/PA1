@@ -11,11 +11,11 @@ public class RBTree {
     }
 
     public Node getRoot(){
-        return null;
+        return root;
     }
 
     public Node getNILNode(){
-        return null;
+        return nil;
     }
 
     public int getSize(){
