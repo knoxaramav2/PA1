@@ -83,8 +83,8 @@ public class Intervals {
 		//intervals.intervalInsert(3, 8);
 		//intervals.intervalInsert(0, 5);
 		//intervals.intervalInsert(12, 15);
-		//intervals.intervalInsert(7, 9);
-		//intervals.intervalInsert(4, 6);
+		intervals.intervalInsert(7, 9);
+		intervals.intervalInsert(4, 6);
 		intervals.intervalInsert(10, 20);
 		intervals.intervalInsert(30, 15);
 		//intervals.intervalInsert(5, 9);

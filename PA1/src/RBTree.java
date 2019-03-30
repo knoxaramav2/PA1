@@ -30,7 +30,7 @@ public class RBTree {
     }
 
     public int getHeight(){
-        return 0; //TODO
+        return (int)(Math.log(nodes+1)/Math.log(2)); //TODO
     }
     
 
@@ -77,6 +77,9 @@ public class RBTree {
     }*/
     
     void RBInsert(Node z) {
+    	
+    	++nodes;
+    	
     	Node y = nil;
     	Node x = root;
     	
@@ -111,38 +114,46 @@ public class RBTree {
     		if (z.parent == z.parent.parent.leftChild) {
     			Node y = z.parent.parent.rightChild;
     			if (y.color == Node.RED) {
+    				System.out.println("Fixup: case 1 left on " + z.key.value + " " + z.color);
     				z.parent.color = Node.BLACK;
     				y.color = Node.BLACK;
     				z.parent.parent.color = Node.RED;
     				z = z.parent.parent;
-    			} else if (z==z.parent.rightChild) {
-    				z = z.parent;
-    				LeftRotate(z);
+    			} else {
+    				if (z==z.parent.rightChild) {
+        				System.out.println("Fixup: case 2 left on " + z.key.value + " " + z.color);
+        				z = z.parent;
+        				LeftRotate(z);
+    				}
+    				System.out.println("Fixup: case 3 left on " + z.key.value + " " + z.color);
+    				z.parent.color = Node.BLACK;
+        			z.parent.parent.color = Node.RED;
+        			RightRotate(z.parent.parent);
     			}
-    			
-    			z.parent.color = Node.BLACK;
-    			z.parent.parent.color = Node.RED;
-    			RightRotate(z.parent.parent);
     		} else {
     			Node y = z.parent.parent.leftChild;
     			if (y.color == Node.RED) {
+    				System.out.println("Fixup: case 1 right on " + z.key.value + " " + z.color);
     				z.parent.color = Node.BLACK;
     				y.color = Node.BLACK;
     				z.parent.parent.color = Node.RED;
     				z = z.parent.parent;
-    			} else if (z==z.parent.leftChild) {
-    				z = z.parent;
-    				RightRotate(z);
+    			} else {
+    				if (z==z.parent.leftChild) {
+        				System.out.println("Fixup: case 2 right on " + z.key.value + " " + z.color);
+        				z = z.parent;
+        				RightRotate(z);
+    				}
+    				System.out.println("Fixup: case 3 right on " + z.key.value + " " + z.color);
+    				z.parent.color = Node.BLACK;
+        			z.parent.parent.color = Node.RED;
+        			LeftRotate(z.parent.parent);
     			}
-    			
-    			z.parent.color = Node.BLACK;
-    			System.out.println(">> " + z.key.value + "   " + z.parent==null?"null" : "non");
-    			z.parent.parent.color = Node.RED;
-    			LeftRotate(z.parent.parent);
     		}
     	}
     	
     	root.color = Node.BLACK;
+    	InOrderWalk();
     }
     
     void InOrderWalk() {
