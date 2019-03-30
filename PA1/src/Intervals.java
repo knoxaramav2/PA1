@@ -56,18 +56,17 @@ public class Intervals {
     //Not required
     public boolean intervalDelete(int intervalID){
 
-        return true;
+        return false;
     }
 
     //Find endpoint of maximum overlap and return value
     //O(1)
-    public int findPOM(){
+    public int findPOM(){ //TODO test me!
 
     	if (rbTree.getSize() == 0) {
     		return 0;
     	}
-    	
-        return 0;
+    	return rbTree.getRoot().getMaxVal();
     }
 
     //Return RBT

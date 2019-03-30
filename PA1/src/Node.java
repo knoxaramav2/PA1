@@ -73,7 +73,9 @@ public class Node {
     }
     
     public int getMaxVal() {
-    	return maxval;
+    	return Math.max(Math.max(this.getLeft().maxval, this.getLeft().getVal() + this.getP()),
+    			this.getLeft().getVal()+this.getP() + this.getRight().maxval); // maxVal according to the document
+    	//return maxval;
     }
 
     public Endpoint getEndpoint(){
@@ -81,7 +83,7 @@ public class Node {
     }
 
     public Endpoint getEmax(){
-        return emax;
+        return emax; //TODO need to calculate eMax
     }
 
     public int getColor(){
