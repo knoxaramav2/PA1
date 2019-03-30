@@ -16,15 +16,20 @@ class Tests {
 		Intervals intervals = new Intervals();
 		Random r = new Random();
 		
-		for (int i = 0; i < 5; ++i) {
-			int min = r.nextInt() % 6;
-			int max = r.nextInt() % 10 + min;
-			intervals.intervalInsert(min, max);
-		}
+		//intervals.intervalInsert(3, 8);
+		intervals.intervalInsert(0, 5);
+		intervals.intervalInsert(12, 15);
+		//intervals.intervalInsert(7, 9);
+		//intervals.intervalInsert(4, 6);
+		//intervals.intervalInsert(10, 20);
+		//intervals.intervalInsert(30, 15);
+		//intervals.intervalInsert(5, 9);
 		
 		//JSONObject jsonObject = new JSONObject(intervals.getRBTree());
 		//String msg = jsonObject.toString();
-			
+		
+		intervals.getRBTree().InOrderWalk();
+		
 		System.out.println("Done");
 		//fail("Not yet implemented");
 	}

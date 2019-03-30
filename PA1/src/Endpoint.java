@@ -7,6 +7,7 @@ public class Endpoint {
 	
     public int value;
     public int p;
+    public int Id;
     
     public int getValue(){
         return value;
