@@ -23,11 +23,11 @@ public class RBTree {
     }
 
     public int getSize(){
-        return 0;
+        return 0; //TODO
     }
 
     public int getHeight(){
-        return 0;
+        return 0; //TODO
     }
     
 
