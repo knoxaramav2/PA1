@@ -14,6 +14,7 @@ public class Intervals {
     public Intervals(){
         nextId = 0;
         intervals = new ArrayList<>();
+        nodes = new ArrayList<>();
         rbTree = new RBTree();
     }
 
