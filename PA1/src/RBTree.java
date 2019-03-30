@@ -26,56 +26,16 @@ public class RBTree {
     }
 
     public int getSize(){
-        return 0; //TODO
+        return nodes;
     }
 
     public int getHeight(){
-        return (int)(Math.log(nodes+1)/Math.log(2)); //TODO
+        return (int)Math.ceil((Math.log(nodes+1)/Math.log(2))); //TODO
     }
     
 
     //General RB Stuff
-    /*
-    void RBInsert(Node z){
-    	
-    	++nodes;
-    	
-		z.leftChild = nil;
-		z.rightChild = nil;
-    	
-		/*Probably not needed
-    	if (root == nil) {
-    		root = z;
-    		++blackHeight;
-    		return;
-    	}
-    	
-    	z.color = Node.RED;
-        
-        Node y = null;
-        Node x = root;
 
-    	while (x!=nil) {
-    		y=x;
-    		x = z.key.getValue() < x.key.getValue() ?
-    				x.leftChild: x.rightChild;
-    	}
-    	
-    	z.parent = y;
-    	
-		if (y==null) {
-			z.color = Node.BLACK;
-			root = z;
-			return;
-		} else if (z.key.getValue() < y.key.getValue()) {
-			y.leftChild = z;
-		} else {
-			y.rightChild = z;
-		}
-		
-    	RBInsertFix(z);
-    }*/
-    
     void RBInsert(Node z) {
     	
     	++nodes;
@@ -107,6 +67,9 @@ public class RBTree {
     	z.color = Node.RED;
     	
     	RBInsertFixup(z);
+    	
+    	z.setVal();
+    	z.setMaxVal();
     }
     
     void RBInsertFixup(Node z) {
@@ -209,45 +172,6 @@ public class RBTree {
     		return;
     	}
     }
-    
-    /*
-    void RBInsertFix(Node z){
-    	
-    	Node uncle = GetUncle(z);
-    	if (uncle==null) {
-    		return;
-    	}
-    	
-    	if (uncle.color == Node.RED) {
-    		z.parent.color = Node.BLACK;
-    		uncle.color = Node.BLACK;
-    		z.parent.parent.color = Node.RED;
-    	} else {
-    		
-    		boolean parentIsLeft = z.parent == z.parent.parent.leftChild;
-    		boolean zIsLeft = z == z.parent.leftChild;
-    		
-    		if (parentIsLeft && zIsLeft) {
-	    		//Uncle Black Left Left
-	    		RightRotate(z.parent.parent);
-	    		SwapColor(z.parent, z.parent.rightChild);
-    		} else if (parentIsLeft && !zIsLeft) {
-				//Uncle Black Left Right
-	    		LeftRotate(z.parent);
-	    		RightRotate(z.parent);
-	    		SwapColor(z, z.rightChild);	
-    		} else if (!parentIsLeft && !zIsLeft) {
-        		//Uncle Black Right Right
-        		LeftRotate(z.parent.parent);
-        		SwapColor(z.parent, z.parent.leftChild);
-    		} else {
-        		//Uncle Black Right Left
-        		RightRotate(z.parent);
-        		LeftRotate(z.parent);
-        		SwapColor(z, z.leftChild);
-    		}
-    	}
-    }*/
     
     public void SwapColor(Node x, Node y) {
     	

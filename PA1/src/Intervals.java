@@ -8,6 +8,7 @@ public class Intervals {
 
     int nextId;
     ArrayList<Interval> intervals;
+    ArrayList<Node> nodes;
     RBTree rbTree;
 
     public Intervals(){
@@ -44,6 +45,9 @@ public class Intervals {
         rbTree.RBInsert(n1);
         rbTree.RBInsert(n2);
         
+        nodes.add(n1);
+        nodes.add(n2);
+        
         ++nextId;
         //System.out.println("Inserted " + a + " " + b);
     }
@@ -58,6 +62,10 @@ public class Intervals {
     //O(1)
     public int findPOM(){
 
+    	if (rbTree.getSize() == 0) {
+    		return 0;
+    	}
+    	
         return 0;
     }
 
