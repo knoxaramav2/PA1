@@ -49,7 +49,7 @@ public class Node {
     }
 
     public int getMaxVal(){
-        return 0;
+        return 0; //TODO
     }
 
     public Endpoint getEndpoint(){
@@ -57,7 +57,7 @@ public class Node {
     }
 
     public Endpoint getEmax(){
-        return null;
+        return null; //TODO
     }
 
     public int getColor(){
