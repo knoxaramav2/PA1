@@ -68,7 +68,6 @@ public class Node {
     	int rmax = rightChild.setMaxVal();
     	
     	
-    	
     	return 0;
     }
     
