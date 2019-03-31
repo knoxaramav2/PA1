@@ -56,7 +56,7 @@ public class Intervals {
     //Not required
     public boolean intervalDelete(int intervalID){
 
-        return false;
+        return false; //return false if not implemented
     }
 
     //Find endpoint of maximum overlap and return value

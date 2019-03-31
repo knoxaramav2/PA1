@@ -35,7 +35,7 @@ public class Node {
     }
 
     public int getKey(){
-        return key.getValue(); //TODO may need to check how this is calculated, where?
+        return key.getValue();
     }
 
     public int getP(){
