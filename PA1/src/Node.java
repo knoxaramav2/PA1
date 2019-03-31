@@ -93,12 +93,12 @@ public class Node {
     	if(max == this.getLeft().maxval){
     		emax = this.getLeft().getEndpoint();
     	}
-    	if(max == ){
-    		emax = ;
+    	if(max ==  this.getLeft().getVal() + this.getP()){
+    		emax = this.getEndpoint();
     	}
     	
-    	if(max == ){
-    		emax = ;
+    	if(max == this.getLeft().getVal()+this.getP() + this.getRight().maxval){
+    		emax = this.getRight().getEndpoint();
     	}
     	/* if max == case 1 => emax = case1.key (or endpoint)
     	 * if max == case 2 => emax = case2.key 
