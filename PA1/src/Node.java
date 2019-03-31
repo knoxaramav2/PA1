@@ -57,7 +57,7 @@ public class Node {
         return val;
     }
 
-    //TODO
+    //TODO --> may be set below
     public int setMaxVal(){
     	
     	if (key==null) {
@@ -75,6 +75,7 @@ public class Node {
     	return Math.max(Math.max(this.getLeft().maxval, this.getLeft().getVal() + this.getP()),
     			this.getLeft().getVal()+this.getP() + this.getRight().maxval); // maxVal according to the document
     	//return maxval;
+    	//this may be the method used to setMaxval actually
     }
 
     public Endpoint getEndpoint(){
@@ -83,8 +84,19 @@ public class Node {
 
     public Endpoint getEmax(){
         return emax; //TODO need to calculate eMax
-    }
+    }//occurs at the endpoint where maxVal would occur(?)
 
+    public void setEmax(){
+    	int max = Math.max(Math.max(this.getLeft().maxval, this.getLeft().getVal() + this.getP()),
+    			this.getLeft().getVal()+this.getP() + this.getRight().maxval);
+    	
+    	/* if max == case 1 => emax = case1.key (or endpoint)
+    	 * if max == case 2 => emax = case2.key 
+    	 * etc...
+    	 * ???? 
+    	 */
+    }
+    
     public int getColor(){
         return color;
     }
