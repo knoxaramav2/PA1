@@ -1,4 +1,4 @@
-import static org.junit.jupiter.api.Assertions.*;
+/*import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.Console;
 import java.sql.Time;
@@ -35,3 +35,4 @@ class Tests {
 	}
 
 }
+*/

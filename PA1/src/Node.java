@@ -86,6 +86,7 @@ public class Node {
     }
 
     public Endpoint getEmax(){
+    	if(emax == null){this.setEmax();} // may not be neede dor wrong
         return emax; 
     }
 
