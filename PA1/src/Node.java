@@ -64,18 +64,21 @@ public class Node {
     		return 0;
     	}
     	
-    	int lmax = leftChild.setMaxVal();
-    	int rmax = rightChild.setMaxVal();
+    //	int lmax = leftChild.setMaxVal();
+    //	int rmax = rightChild.setMaxVal();
+    	maxval = Math.max(Math.max(this.getLeft().maxval, this.getLeft().getVal() + this.getP()),
+    			this.getLeft().getVal()+this.getP() + this.getRight().maxval); // maxVal according to the document
     	
+    	//return 0;
     	
-    	return 0;
+    	return Math.max(Math.max(this.getLeft().maxval, this.getLeft().getVal() + this.getP()),
+    			this.getLeft().getVal()+this.getP() + this.getRight().maxval); // maxVal according to the document, 
     }
     
     public int getMaxVal() {
-    	return Math.max(Math.max(this.getLeft().maxval, this.getLeft().getVal() + this.getP()),
-    			this.getLeft().getVal()+this.getP() + this.getRight().maxval); // maxVal according to the document
-    	//return maxval;
-    	//this may be the method used to setMaxval actually
+    	return maxval;/*Math.max(Math.max(this.getLeft().maxval, this.getLeft().getVal() + this.getP()),
+    			this.getLeft().getVal()+this.getP() + this.getRight().maxval); // maxVal according to the document*/
+    	
     }
 
     public Endpoint getEndpoint(){
@@ -83,10 +86,10 @@ public class Node {
     }
 
     public Endpoint getEmax(){
-        return emax; //TODO need to calculate eMax
-    }//occurs at the endpoint where maxVal would occur, according to post on Piazza
+        return emax; 
+    }
 
-    public void setEmax(){
+    public void setEmax(){ //occurs at the endpoint where maxVal would occur, according to post on Piazza
     	int max = Math.max(Math.max(this.getLeft().maxval, this.getLeft().getVal() + this.getP()),
     			this.getLeft().getVal()+this.getP() + this.getRight().maxval);
     	
@@ -103,7 +106,6 @@ public class Node {
     	/* if max == case 1 => emax = case1.key (or endpoint)
     	 * if max == case 2 => emax = case2.key 
     	 * etc...
-    	 * ???? 
     	 */
     }
     

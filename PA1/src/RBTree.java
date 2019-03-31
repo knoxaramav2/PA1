@@ -70,6 +70,7 @@ public class RBTree {
     	
     	z.setVal();
     	z.setMaxVal();
+    	z.setEmax(); // TODO double check for accuracy
     }
     
     void RBInsertFixup(Node z) {
