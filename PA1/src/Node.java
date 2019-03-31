@@ -86,23 +86,26 @@ public class Node {
     }
 
     public Endpoint getEmax(){
-    	if(emax == null){this.setEmax();} // may not be neede dor wrong
-        return emax; 
-    }
+    	if(emax == null){this.setEmax();} // may not be needed or wrong
+        return emax;
+    	    }
 
     public void setEmax(){ //occurs at the endpoint where maxVal would occur, according to post on Piazza
-    	int max = Math.max(Math.max(this.getLeft().maxval, this.getLeft().getVal() + this.getP()),
-    			this.getLeft().getVal()+this.getP() + this.getRight().maxval);
+    	int max =this.getMaxVal();/* Math.max(Math.max(this.getLeft().maxval, this.getLeft().getVal() + this.getP()),
+    			this.getLeft().getVal()+this.getP() + this.getRight().maxval);*/
     	
-    	if(max == this.getLeft().maxval){
+    	if(max == this.getLeft().maxval /*&& this.getLeft().getEndpoint() != null*/ ){
     		emax = this.getLeft().getEndpoint();
     	}
-    	if(max ==  this.getLeft().getVal() + this.getP()){
+    	else if((max ==  this.getLeft().getVal() + this.getP()) /*&&  this.getEndpoint() != null*/){
     		emax = this.getEndpoint();
     	}
     	
-    	if(max == this.getLeft().getVal()+this.getP() + this.getRight().maxval){
+    	else if((max == this.getLeft().getVal()+this.getP() + this.getRight().maxval )/*&& this.getRight().getEndpoint() != null*/){
     		emax = this.getRight().getEndpoint();
+    	}
+    	else {
+    		System.out.println("ERROR");;
     	}
     	/* if max == case 1 => emax = case1.key (or endpoint)
     	 * if max == case 2 => emax = case2.key 
