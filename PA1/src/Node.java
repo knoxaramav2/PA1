@@ -84,12 +84,22 @@ public class Node {
 
     public Endpoint getEmax(){
         return emax; //TODO need to calculate eMax
-    }//occurs at the endpoint where maxVal would occur(?)
+    }//occurs at the endpoint where maxVal would occur, according to post on Piazza
 
     public void setEmax(){
     	int max = Math.max(Math.max(this.getLeft().maxval, this.getLeft().getVal() + this.getP()),
     			this.getLeft().getVal()+this.getP() + this.getRight().maxval);
     	
+    	if(max == this.getLeft().maxval){
+    		emax = this.getLeft().getEndpoint();
+    	}
+    	if(max == ){
+    		emax = ;
+    	}
+    	
+    	if(max == ){
+    		emax = ;
+    	}
     	/* if max == case 1 => emax = case1.key (or endpoint)
     	 * if max == case 2 => emax = case2.key 
     	 * etc...
