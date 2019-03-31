@@ -10,6 +10,6 @@ public class Endpoint {
     public int Id;
     
     public int getValue(){
-        return value;
+        return value; //TODO may need to be calculated
     }
 }
