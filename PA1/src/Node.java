@@ -1,4 +1,4 @@
-//Woodrow Scott
+//Woodrow Scott, Alek Comstock
 
 public class Node {
 
