@@ -43,6 +43,7 @@ public class Node {
     }
 
     public int getVal() {
+    	this.setVal(); //testing this
     	return val;  
     }
     
@@ -64,18 +65,19 @@ public class Node {
     		return 0;
     	}
     	
+    	
     //	int lmax = leftChild.setMaxVal();
     //	int rmax = rightChild.setMaxVal();
-    	maxval = Math.max(Math.max(this.getLeft().maxval, this.getLeft().getVal() + this.getP()),
-    			this.getLeft().getVal()+this.getP() + this.getRight().maxval); // maxVal according to the document
+    	maxval = Math.max(Math.max(this.getLeft().getMaxVal(), this.getLeft().getVal() + this.getP()),
+    			this.getLeft().getVal()+this.getP() + this.getRight().getMaxVal()); // maxVal according to the document
     	
     	//return 0;
     	
-    	return Math.max(Math.max(this.getLeft().maxval, this.getLeft().getVal() + this.getP()),
-    			this.getLeft().getVal()+this.getP() + this.getRight().maxval); // maxVal according to the document, 
+    	return maxval; //Math.max(Math.max(this.getLeft().maxval, this.getLeft().getVal() + this.getP()),this.getLeft().getVal()+this.getP() + this.getRight().maxval); // maxVal according to the document, 
     }
     
     public int getMaxVal() {
+    	this.setMaxVal();
     	return maxval;/*Math.max(Math.max(this.getLeft().maxval, this.getLeft().getVal() + this.getP()),
     			this.getLeft().getVal()+this.getP() + this.getRight().maxval); // maxVal according to the document*/
     	

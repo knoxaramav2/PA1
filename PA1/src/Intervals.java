@@ -92,15 +92,18 @@ public class Intervals {
 		//intervals.intervalInsert(0, 5);
 		//intervals.intervalInsert(12, 15);
 		intervals.intervalInsert(7, 9);
-		intervals.intervalInsert(4, 6);
+		intervals.intervalInsert(4, 6);  //-- when (7,9), and (4,6) used, maxvlaue 2 - which is wrong
 		intervals.intervalInsert(10, 20);
 		intervals.intervalInsert(30, 15);
 		//intervals.intervalInsert(5, 9);
+		intervals.intervalInsert(13,27 );//*/
+		intervals.intervalInsert(14, 19);//*/
 		
 		//JSONObject jsonObject = new JSONObject(intervals.getRBTree());
 		//String msg = jsonObject.toString();
 		
 		intervals.getRBTree().InOrderWalk();
+		System.out.println("max value: " + intervals.getRBTree().getRoot().getMaxVal() + ", key: " + intervals.getRBTree().getRoot().getKey());
     }
 }
 
